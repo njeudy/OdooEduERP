@@ -99,8 +99,8 @@
                                   </group>
                             </page>
                             <page string="Parents">
-                                <field name="parent_id" domain="[('parent_school','=',True)]" 
-                                            attrs="{'readonly':[('state','in',['alumni','terminate'])]}" 
+                                <field name="parent_id" domain="[('parent_school','=',True)]"
+                                            attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
                                             context="{'form_view_ref':'school.view_parent_form','default_parent_school':1}"
                                             options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                             </page>
@@ -442,7 +442,7 @@
                         </div>
                         <group>
                             <group string="School Information">
-                                <field name="school_id" placeholder="School Name" required="1" 
+                                <field name="school_id" placeholder="School Name" required="1"
                                     attrs="{'readonly':[('state','=','alumni')]}" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                                 <field name="year" widget="selection" placeholder="Academic Year" attrs="{'readonly':[('state','=','alumni')]}"/>
                                 <field name="cmp_id" invisible="1"/>
@@ -852,7 +852,7 @@
                                                 <field name="subject_id" required="1"/>
                                                 <field name="syllabus_doc" required="1"/>
                                             </group>
-                                            
+
                                         </form>
                                     </field>
                                 </group>
@@ -1052,12 +1052,12 @@
                             <field name="code" placeholder="Code" />
                             <field name="date_start" placeholder="Start Date" />
                             <field name="date_stop" placeholder="Stop Date" />
-                            <field name="grade_id" placeholder="Grade System" 
+                            <field name="grade_id" placeholder="Grade System"
                                 options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Months">
-                                <field name="month_ids" nolabel="1" colspan="4" 
+                                <field name="month_ids" nolabel="1" colspan="4"
                                         options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                     <tree string="Months">
                                         <field name="name" />
@@ -1324,7 +1324,7 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Standards">
-                                <field name="standard_ids" nolabel="1" colspan="4" 
+                                <field name="standard_ids" nolabel="1" colspan="4"
                                     options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                     <tree string="Standards">
                                         <field name="name" />
@@ -1339,7 +1339,7 @@
                                 </field>
                             </page>
                             <page string="Teachers">
-                                <field name="teacher_ids" nolabel="1" colspan="4" 
+                                <field name="teacher_ids" nolabel="1" colspan="4"
                                      options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                             </page>
                             <page string="Students" attrs="{'invisible':[('elective_id','!=',True)]}">
@@ -1434,7 +1434,7 @@
                  <xpath expr="//search/field[@name='job_id']" position="after">
                      <filter string="Teacher" name="is_teacher" domain="[('is_school_teacher','=',True)]"/>
                  </xpath>
-                 
+
              </field>
         </record>
         <!-- Actions Of Form & Kanban Views Of Student Reminder -->
@@ -1469,7 +1469,7 @@
             <field name="context">{'search_default_is_teacher': 1,'default_is_school_teacher': 1,'school_teacher': 1}</field>
             <field name="view_mode">kanban,tree,form</field>
         </record>
-        
+
         <!-- Action Of Form, Tree & Kanban View Of Admission Register Information -->
         <record id="action_student_student_form_2" model="ir.actions.act_window">
             <field name="name">Admission Register</field>
@@ -1639,7 +1639,7 @@
                                         options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                                 </page>
                             </notebook>
-                        
+
                     </sheet>
                 </form>
             </field>
@@ -1718,7 +1718,6 @@
                                 <group string="Communication">
                                     <field name="phone" placeholder="Phone Number"/>
                                     <field name="mobile" placeholder="Mobile Number"/>
-                                    <field name="fax" placeholder="Fax"/>
                                     <field name="email" widget="email" required="1" placeholder="Email"/>
                                 </group>
                              </group>
@@ -1794,7 +1793,7 @@
             <field name="view_id" ref="view_parent_form" />
             <field name="act_window_id" ref="action_parent_form" />
         </record>
-        
+
         <!-- Menu Item Of EMS -->
         <menuitem id="menu_ems" name="EMS" sequence="1"/>
         <!-- Menu Item Of Dashboard -->

@@ -238,7 +238,7 @@ class DailyAttendance(models.Model):
     def create(self, vals):
         child = ''
         if vals:
-            if 'student_ids' in vals.keys():
+            if 'student_ids' in list(vals.keys()):
                 child = vals.pop('student_ids')
         ret_val = super(DailyAttendance, self).create(vals)
         if child != '':

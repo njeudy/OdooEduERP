@@ -91,10 +91,10 @@
                     </group>
                     <newline />
                     <group expand="0" string="Group By" colspan="12" col="10">
-                        <filter icon="terp-personal" string="Name" 
+                        <filter icon="terp-personal" string="Name"
                             help="By Name" context="{'group_by':'name'}" />
                         <separator orientation="vertical" />
-                        <filter icon="terp-stock_symbol-selection" 
+                        <filter icon="terp-stock_symbol-selection"
                             string="Event" help="By Event Name" context="{'group_by':'event_id'}" />
                     </group>
                 </search>
@@ -224,7 +224,7 @@
 
         <!-- Search View Of Event Information -->
 
-        <record id="school_event_search_view" model="ir.ui.view">
+        <!-- <record id="school_event_search_view" model="ir.ui.view">
             <field name="name">event.search.1</field>
             <field name="model">school.event</field>
             <field name="arch" type="xml">
@@ -257,7 +257,7 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
         <!-- Calendar View Of Event Information -->
 
@@ -388,9 +388,9 @@
             <field name="arch" type="xml">
                 <form string="Event Registration">
                     <header>
-                        <button name="regi_confirm" class="btn btn-sm btn-default fa fa-check" string="Confirm" 
+                        <button name="regi_confirm" class="btn btn-sm btn-default fa fa-check" string="Confirm"
                                 states="draft" type='object' groups="school.group_school_administration,school.group_school_teacher,school.group_school_student" />
-                        <button name="regi_cancel" string="Cancel" class="btn btn-sm btn-default fa fa-ban" 
+                        <button name="regi_cancel" string="Cancel" class="btn btn-sm btn-default fa fa-ban"
                                 states="draft,confirm" type='object' groups="school.group_school_administration,school.group_school_teacher,school.group_school_student" />
                         <field name="state" widget="statusbar" nolabel="1" />
                     </header>
@@ -478,7 +478,7 @@
             <field name="res_model">school.event.registration</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,search</field>
-            <field name="context">{'search_default_confirm':True}</field> 
+            <field name="context">{'search_default_confirm':True}</field>
         </record>
 
         <!-- Menu Items for Event -->

@@ -129,7 +129,7 @@
         <menuitem id="menu_library" name="Library" parent="school.menu_ems" sequence="5" groups="library.group_librarian,group_userian"/>
 
         <menuitem id="menu_library_config" name="Library" parent="school.menu_configuration" sequence="5" groups="library.group_librarian,group_userian"/>
-      
+
         <menuitem id="menu_library_rack" name="Library Rack" parent="menu_library_config"
                   action="action_library_rack"
                   groups="school.group_school_administration,library.group_librarian,library.group_userian"/>
@@ -203,7 +203,7 @@
                                     <field name="fine_lost" string="Fine amount if Lost"/>
                                     <field name="fine_late_return" string="Fine amount if late return"/>
                                 </group>
-                                
+
                             </page>
                             <page string="Descriptions">
                                 <field name="description" colspan="4" nolabel="1" placeholder="Enter Description About Book"/>
@@ -232,7 +232,7 @@
                 </tree>
             </field>
         </record>
-        
+
          <!-- KanBan View Of Books -->
 
         <record id="books_kanban_view" model="ir.ui.view">
@@ -315,7 +315,7 @@
                                                             <b>
                                                                 <field name="availability"/>
                                                             </b>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -576,7 +576,7 @@
                                 <field name="compute_inv"/>
                             </button>
                          </div>
-                            
+
                         <separator string="Book Issue" colspan="4" col="4"/>
                         <group col="4" colspan="4" attrs="{'readonly' : [('state', 'in', ['issue', 'reissue', 'return'])]}">
                             <field name="issue_code" attrs="{'readonly':[('state','not in','draft')]}"/>
@@ -642,6 +642,7 @@
                 <kanban default_group_by="state">
                     <field name="color"/>
                     <field name="name"/>
+                    <field name="user"/>
                     <field name="card_id"/>
                     <field name="gt_name"/>
                     <field name="standard_id" attrs="{'invisible':[('user','!=','Student')]}"/>
@@ -698,7 +699,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    
+
                                     <div class="oe_kanban_buttons_set oe_kanban_color_border oe_kanban_color_bglight oe_kanban_box_show_onclick">
                                         <div class="oe_kanban_left">
                                             <a string="Edit" class="btn btn-sm btn-default fa fa-pencil" type="edit" groups="library.group_librarian"/>
@@ -763,11 +764,11 @@
             <field name="arch" type="xml">
                 <form string="Book Request Form">
                     <header>
-                           <button name="confirm_book_request" class="fa fa fa-undo" type="object" string="Confirm Request" 
+                           <button name="confirm_book_request" class="fa fa fa-undo" type="object" string="Confirm Request"
                            groups="library.group_librarian" attrs="{'invisible':['|',('type','=','new'),('state','!=','draft')]}" states='draft'/>
                            <button name="cancle_book_request" class="fa fa-snowflake-o" string="Cancle Request" type="object" states="confirm"/>
                            <field name="state" widget="statusbar" align="right" readonly="1" />
-                           
+
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
@@ -783,7 +784,7 @@
                         <group>
                             <group>
                                 <field name="name" attrs="{'invisible':[('type','!=','existing')],'required':[('type','!=','new')],
-                                    'readonly':[('state','!=','draft')]}" 
+                                    'readonly':[('state','!=','draft')]}"
                                        domain="[('availability','=','available'),
                                                ('categ_id.name', '=', 'Books')]"
                                        widget="selection"/>
@@ -828,7 +829,7 @@
                         <field name="req_id"/>
                         <field name="card_id"/>
                         <filter name="fil_state" domain="[('state','=','draft')]" string="Draft"/>
-                        
+
                     </group>
                     <separator orientation="vertical"/>
                     <newline />
@@ -934,7 +935,6 @@ i
                                 <field name="title"/>
                                 <field name="phone"/>
                                 <field name="mobile"/>
-                                <field name="fax"/>
                             </group>
                         </group>
                         <field name="biography" colspan="4" placeholder="Biography"/>
@@ -966,7 +966,7 @@ i
                 </search>
             </field>
         </record>
-        
+
         <!-- Form View Of Res Partner -->
 
         <record id="view_partner_form_11" model="ir.ui.view">
@@ -1023,7 +1023,6 @@ i
                                        attrs="{'invisible': [('is_company','=', True)]}"/>
                                 <field name="phone" placeholder="e.g. +32.81.81.37.00"/>
                                 <field name="mobile"/>
-                                <field name="fax"/>
                                 <field name="email" widget="email"/>
                                 <field name="title" domain="[('domain', '=', 'contact')]" groups="base.group_no_one"
                                        options='{"no_open": True}'
@@ -1254,9 +1253,9 @@ i
                     <group colspan="4" col="6">
                         <field name="name" readonly="1"/>
                         <field name="origin" />
-                        <!-- <field name="address_id" on_change="onchange_partner_in(address_id)" 
+                        <!-- <field name="address_id" on_change="onchange_partner_in(address_id)"
                                     select="2" context="{'contact_display':'partner'}"/> -->
-                        <field name="min_date" select="2" readonly="1"/>
+                        <!-- <field name="min_date" select="2" readonly="1"/> -->
                         <field name="backorder_id" select="2" readonly="1"/>
                     </group>
                     <notebook colspan="4">
@@ -1273,7 +1272,6 @@ i
                                     <field name="scrapped" invisible="1"/>
                                     <button name="setlast_tracking" string="Put in current pack"
                                         type="object" groups="base.group_extended" icon="terp-stock_effects-object-colorize"
-                                        attrs="{'invisible': [('tracking_id','&lt;&gt;',False)]}"
                                         states="draft,assigned,confirmed"/>
                                     <field name="location_dest_id"/>
                                     <field name="state"/>
@@ -1355,7 +1353,7 @@ i
             <field name="arch" type="xml">
                 <form string="Internal Picking List">
                     <group col="6" colspan="4">
-                        <field name="min_date" select="2"/>
+                        <!-- <field name="min_date" select="2"/> -->
                         <field name="name" select="1" readonly="1"/>
                         <field name="backorder_id" select="2" readonly="1"/>
                         <field name="origin" select="2" readonly="1"/>
@@ -1372,7 +1370,7 @@ i
                                             context="{'scrap': True}" states="draft,waiting,confirmed,assigned"/>
                                     <field name="scrapped" invisible="1"/>
                                     <button name="setlast_tracking" string="Put in current pack"
-                                            type="object" attrs="{'invisible': [('tracking_id','&lt;&gt;',False)]}"
+                                            type="object"
                                             groups="base.group_extended" icon="terp-stock_effects-object-colorize"
                                             states="draft,assigned,confirmed"/>
                                     <field name="location_id"/>

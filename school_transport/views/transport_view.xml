@@ -56,7 +56,7 @@
                             <field name="is_driver" string="Is Driver" readonly="1"/>
                         </group>
                     </xpath>
-                    <xpath expr="//page[1]/group/group[2]/field[@name='calendar_id']" position="after">
+                    <xpath expr="//page[1]/group/group[2]/field[@name='resource_calendar_id']" position="after">
                         <field name="licence_no" attrs="{'required':[('is_driver','=',True)]}"/>
                     </xpath>
                     <xpath expr="//page[@name='hr_settings']" position="after">
@@ -284,7 +284,7 @@
                    <newline/>
                     <group expand="0" string="Group By" colspan="12" col="10">
                         <filter string="This Month" icon="terp-go-month" name="this_month"
-                                domain="[('start_date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('start_date','&gt;=',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]" 
+                                domain="[('start_date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('start_date','&gt;=',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]"
                                 help="Events in current month"/>
                         <separator orientation="vertical"/>
                         <filter icon="terp-stock_symbol-selection" string="Root Name" help="By Root Name" context="{'group_by':'name'}"/>
@@ -396,9 +396,9 @@
                         <page string="Participant" >
                             <separator string="Vehicle Participant Details" colspan="4"/>
                             <field name="vehi_participants_ids" nolabel='1' domain="[('state','=','running')]"/>
-                        </page> 
+                        </page>
                     </notebook>
-                    </sheet>   
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -496,9 +496,9 @@
             <field name="context">{"search_default_job_id":1}</field>
             <field name="search_view_id" ref="view_bus_driver_search"/>
         </record>
-        
+
         <!-- Overrite the EMS Menu and Added the Transport manager and user groups -->
-        <menuitem id="school.menu_ems" name="EMS" sequence="1" 
+        <menuitem id="school.menu_ems" name="EMS" sequence="1"
             groups="school.group_school_administration,school.group_school_student,school.group_school_teacher,school.group_school_parent,group_transportation_manager,group_transportation_user" />
 
         <!--Menu Items for Transport  -->

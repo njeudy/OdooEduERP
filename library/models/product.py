@@ -94,7 +94,7 @@ class ProductProduct(models.Model):
             if barcode:
                 name = '[%s] %s' % (barcode or '', name)
             return (d['id'], name)
-        return map(_name_get, self.read(['name', 'barcode']))
+        return list(map(_name_get, self.read(['name', 'barcode'])))
 
     @api.multi
     def _default_categ(self):
@@ -211,7 +211,7 @@ class ProductProduct(models.Model):
             keys = {}
             for e in seq:
                 keys[e] = 1
-            return keys.keys()
+            return list(keys.keys())
 
         # add link from editor to supplier:
         if 'editor' in vals:
